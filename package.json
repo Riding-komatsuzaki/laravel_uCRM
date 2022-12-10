@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "tsc": "vue-tsc --noEmit",
+        "build": "npm run tsc && vite build"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.11.0",
@@ -17,11 +18,14 @@
         "postcss": "^8.4.18",
         "tailwindcss": "^3.2.1",
         "vite": "^3.0.0",
-        "vue": "^3.2.41"
+        "vue": "^3.2.41",
+        "vue-tsc": "^1.0.12"
     },
     "dependencies": {
+        "chart.js": "^3.9.1",
         "dayjs": "^1.11.5",
         "micromodal": "^0.4.10",
+        "vue-chart-3": "^3.1.8",
         "yubinbango-core2": "^0.6.3"
     }
 }
