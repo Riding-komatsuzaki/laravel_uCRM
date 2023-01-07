@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Customer>
@@ -19,6 +20,7 @@ class CustomerFactory extends Factory
     $tel = str_replace('-', '', $this->faker->phoneNumber);
     $address = mb_substr($this->faker->address, 9);
     return [
+      'user_id' => rand(1, User::count()),
       'name' => $this->faker->name,
       'kana' => $this->faker->kanaName,
       'tel' => $tel,

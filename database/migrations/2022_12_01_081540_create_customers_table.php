@@ -15,6 +15,7 @@ return new class extends Migration
   {
     Schema::create('customers', function (Blueprint $table) {
       $table->id();
+      $table->foreignId('user_id')->constrained()->onUpdate('cascade');
       $table->string('name');
       $table->string('kana');
       $table->string('tel')->unique();
