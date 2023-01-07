@@ -20,7 +20,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route("login"), {
+    form.post(route("admin.login"), {
         onFinish: () => form.reset("password"),
     });
 };
@@ -35,17 +35,16 @@ const submit = () => {
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
-
         <div class="flex justify-between mb-2">
-            ユーザー用
+            管理者用
+
             <Link
-                :href="route('admin.login')"
-                class="underline text-sm self-end text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                :href="route('login')"
+                class="underline block text-sm text-right text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-                管理者用ログイン
+                ユーザー用ログイン
             </Link>
         </div>
-
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="email" value="メールアドレス" />
@@ -88,7 +87,7 @@ const submit = () => {
             <div class="flex items-center justify-end mt-4">
                 <Link
                     v-if="canResetPassword"
-                    :href="route('password.request')"
+                    :href="route('admin.password.request')"
                     class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                     パスワードを忘れた方はこちらへ
