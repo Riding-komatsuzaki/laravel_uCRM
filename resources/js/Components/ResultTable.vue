@@ -33,9 +33,7 @@ const props = defineProps({
                     <td class="px-4 py-3">
                         {{ item.date }}
                     </td>
-                    <td class="px-4 py-3">
-                        {{ item.total }}
-                    </td>
+                    <td class="px-4 py-3">{{ item.total }}円</td>
                 </tr>
             </tbody>
         </table>
@@ -75,15 +73,9 @@ const props = defineProps({
                     <td class="px-4 py-3">
                         {{ item.decile }}
                     </td>
-                    <td class="px-4 py-3">
-                        {{ item.average }}
-                    </td>
-                    <td class="px-4 py-3">
-                        {{ item.totalPerGroup }}
-                    </td>
-                    <td class="px-4 py-3">
-                        {{ item.totalRatio }}
-                    </td>
+                    <td class="px-4 py-3">{{ item.average }}円</td>
+                    <td class="px-4 py-3">{{ item.totalPerGroups }}円</td>
+                    <td class="px-4 py-3">{{ item.totalRatio }}％</td>
                 </tr>
             </tbody>
         </table>

@@ -68,12 +68,12 @@ class DecileService {
     // 6. グループ毎の合計・平均
     $subQuery = DB::table($subQuery)
     ->groupBy('decile')
-    ->selectRaw('decile, round(avg(total)) as average, sum(total) as totalPerGroup');
+    ->selectRaw('decile, format(round(avg(total)),0) as average, sum(total) as totalPerGroup');
 
     // 7 構成比
     DB::statement("set @total = ${total} ;");
     $data = DB::table($subQuery)
-    ->selectRaw('decile, average, totalPerGroup,
+    ->selectRaw('decile, average, totalPerGroup, format(totalPerGroup,0) as totalPerGroups,
     round(100 * totalPerGroup / @total, 1) as totalRatio')
     ->get();
 

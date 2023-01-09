@@ -35,11 +35,11 @@ const showingNavigationDropdown = ref(false);
                                     :href="route('admin.dashboard')"
                                     :active="route().current('admin.dashboard')"
                                 >
-                                    Dashboard
+                                    ホーム
                                 </NavLink>
                                 <NavLink
-                                    :href="route('analysis')"
-                                    :active="route().current('analysis')"
+                                    :href="route('admin.admin')"
+                                    :active="route().current('admin.admin')"
                                 >
                                     ユーザー管理
                                 </NavLink>
@@ -148,11 +148,11 @@ const showingNavigationDropdown = ref(false);
                             :href="route('admin.dashboard')"
                             :active="route().current('admin.dashboard')"
                         >
-                            Dashboard
+                            ホーム
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
-                            :href="route('analysis')"
-                            :active="route().current('analysis')"
+                            :href="route('admin.admin')"
+                            :active="route().current('admin.admin')"
                         >
                             ユーザー管理
                         </ResponsiveNavLink>

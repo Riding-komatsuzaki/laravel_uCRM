@@ -5,7 +5,6 @@ namespace App\Models\Scopes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Facades\Auth;
 
 class Subtotal implements Scope
 {
@@ -26,6 +25,7 @@ class Subtotal implements Scope
     customers.id as customer_id,
     customers.user_id as user_id,
     customers.name as customer_name,
+    users.name as user_name,
     items.name as item_name,
     items.price as item_price,
     item_purchase.quantity,
@@ -35,7 +35,8 @@ class Subtotal implements Scope
     from purchases
     left join item_purchase on purchases.id = item_purchase.purchase_id
     left join items on item_purchase.item_id = items.id
-    left join customers on purchases.customer_id = customers.id';
+    left join customers on purchases.customer_id = customers.id
+    left join users on customers.user_id = users.id';
 
     $builder->fromSub($sql, 'order_subtotals');
   }

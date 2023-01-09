@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Customer;
 use App\Http\Controllers\Api\AnalysisController;
+use App\Http\Controllers\Api\ManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,8 @@ use App\Http\Controllers\Api\AnalysisController;
 |
 */
 Route::middleware('auth:sanctum')->get('/analysis', [ AnalysisController::class, 'index' ])->name('api.analysis');
+
+Route::middleware('auth:admin')->get('/management', [ManagementController::class, 'index'])->name('api.management');
 
 Route::middleware('auth:sanctum')->get('/searchCustomers', function (Request $request) {
   return Customer::searchCustomers($request->search)->select('id', 'user_id', 'name', 'kana', 'tel')->paginate(50);

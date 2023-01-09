@@ -13,17 +13,17 @@ class AnalysisService {
 
     $query = $subQuery->where('status', true)
       ->groupBy('id')
-      ->selectRaw('id, user_id, sum(subtotal) as totalPerPurchase, DATE_FORMAT(created_at, "%Y%m%d") as date')
+      ->selectRaw('id, user_id, sum(subtotal) as totalPerPurchase, DATE_FORMAT(created_at, "%Y/%m/%d") as date')
       ->where('user_id', $authid);
       
 
       $data = DB::table($query)
       ->groupBy('date')
-      ->selectRaw('date, sum(totalPerPurchase) as total')
+      ->selectRaw('date, format(sum(totalPerPurchase),0) as total, sum(totalPerPurchase) as totals')
       ->get();
 
       $labels = $data->pluck('date');
-      $totals = $data->pluck('total');
+      $totals = $data->pluck('totals');
 
       return [$data, $labels, $totals];
   }
@@ -34,17 +34,17 @@ class AnalysisService {
 
     $query = $subQuery->where('status', true)
       ->groupBy('id')
-      ->selectRaw('id, user_id, sum(subtotal) as totalPerPurchase, DATE_FORMAT(created_at, "%Y%m") as date')
+      ->selectRaw('id, user_id, sum(subtotal) as totalPerPurchase, DATE_FORMAT(created_at, "%Y/%m") as date')
       ->where('user_id', $authid);
       
 
       $data = DB::table($query)
       ->groupBy('date')
-      ->selectRaw('date, sum(totalPerPurchase) as total')
+      ->selectRaw('date, format(sum(totalPerPurchase),0) as total, sum(totalPerPurchase) as totals')
       ->get();
 
       $labels = $data->pluck('date');
-      $totals = $data->pluck('total');
+      $totals = $data->pluck('totals');
 
       return [$data, $labels, $totals];
   }
@@ -61,11 +61,11 @@ class AnalysisService {
 
       $data = DB::table($query)
       ->groupBy('date')
-      ->selectRaw('date, sum(totalPerPurchase) as total')
+      ->selectRaw('date, format(sum(totalPerPurchase),0) as total, sum(totalPerPurchase) as totals')
       ->get();
 
       $labels = $data->pluck('date');
-      $totals = $data->pluck('total');
+      $totals = $data->pluck('totals');
 
       return [$data, $labels, $totals];
   }
