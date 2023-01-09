@@ -72,7 +72,7 @@ const setCustomerId = (id) => {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">
+                    <div class="sm:p-6 p-1 text-gray-900">
                         <ValidationErrors class="mb-4" />
                         <section class="text-gray-600 body-font relative">
                             <form @submit.prevent="storePurchase">
@@ -113,32 +113,32 @@ const setCustomerId = (id) => {
                                                 class="w-full mt-8 mx-auto overflow-auto"
                                             >
                                                 <table
-                                                    class="table-auto w-full text-left whitespace-no-wrap"
+                                                    class="sm:table-auto table-fixed sm:w-auto w-96 text-left overflow-x-scroll whitespace-no-wrap"
                                                 >
                                                     <thead>
                                                         <tr>
                                                             <th
-                                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl"
+                                                                class="w-1/12 px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl"
                                                             >
                                                                 ID
                                                             </th>
                                                             <th
-                                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
+                                                                class="w-32 px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
                                                             >
                                                                 商品名
                                                             </th>
                                                             <th
-                                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
+                                                                class="w-16 px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
                                                             >
                                                                 金額
                                                             </th>
                                                             <th
-                                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
+                                                                class="w-20 px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
                                                             >
                                                                 数量
                                                             </th>
                                                             <th
-                                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
+                                                                class="w-16 px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"
                                                             >
                                                                 小計
                                                             </th>

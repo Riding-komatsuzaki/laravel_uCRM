@@ -160,7 +160,7 @@ const setCustomer = (e) => {
         @click="searchCustomers"
         type="button"
         data-micromodal-trigger="modal-1"
-        class="flex mx-auto text-white bg-teal-500 border-0 py-2 px-8 focus:outline-none hover:bg-teal-600 rounded text-lg"
+        class="flex mt-4 mx-auto text-white bg-teal-500 border-0 py-2 px-8 focus:outline-none hover:bg-teal-600 rounded text-lg"
     >
         検索する
     </button>

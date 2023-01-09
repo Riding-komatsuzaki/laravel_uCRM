@@ -97,22 +97,30 @@ const getData = async () => {
                                 type="date"
                                 name="startDate"
                                 v-model="form.startDate"
+                                class="sm:mt-0 mt-2"
                             />
+                            <br class="sm:hidden block" />
                             To:
                             <input
                                 type="date"
                                 name="endDate"
                                 v-model="form.endDate"
+                                class="sm:ml-0 ml-5 sm:mt-0 mt-2"
                             /><br />
 
-                            <div v-if="form.type === 'rfm'" class="my-8">
-                                <table class="mx-auto">
+                            <div
+                                v-if="form.type === 'rfm'"
+                                class="my-8 lg:w-2/3 w-full mx-auto overflow-auto"
+                            >
+                                <table
+                                    class="sm:table-auto table-fixed w-full text-left whitespace-no-wrap"
+                                >
                                     <thead>
                                         <tr>
-                                            <th>ランク</th>
-                                            <th>R (○日以内)</th>
-                                            <th>F (○回以上)</th>
-                                            <th>M (○円以上)</th>
+                                            <th class="w-14">ランク</th>
+                                            <th class="w-32">R (○日以内)</th>
+                                            <th class="w-32">F (○回以上)</th>
+                                            <th class="w-32">M (○円以上)</th>
                                         </tr>
                                     </thead>
                                     <tbody>

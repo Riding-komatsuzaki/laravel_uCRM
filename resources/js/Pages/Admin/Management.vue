@@ -72,12 +72,15 @@ const getData = async () => {
                                 type="date"
                                 name="startDate"
                                 v-model="form.startDate"
+                                class="sm:mt-0 mt-2"
                             />
+                            <br class="sm:hidden block" />
                             To:
                             <input
                                 type="date"
                                 name="endDate"
                                 v-model="form.endDate"
+                                class="sm:ml-0 ml-5 sm:mt-0 mt-2"
                             /><br />
 
                             <button
