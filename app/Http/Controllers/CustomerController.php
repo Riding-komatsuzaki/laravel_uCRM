@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Customer;
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
@@ -18,10 +20,12 @@ class CustomerController extends Controller
   public function index(Request $request)
   {
 
-    $customers = Customer::searchCustomers($request->search)->select('id', 'name', 'kana', 'tel')->paginate(50);
+    $customers = Customer::searchCustomers($request->search)->select('id', 'user_id', 'name', 'kana', 'tel')->paginate(50);
+
 
     return Inertia::render('Customers/Index', [
-      'customers' => $customers
+      'customers' => $customers,
+      'authId' => Auth::id()
     ]);
   }
 
@@ -32,7 +36,7 @@ class CustomerController extends Controller
    */
   public function create()
   {
-    return Inertia::render('Customers/Create');
+    return Inertia::render('Customers/Create', ['authId' => Auth::id()]);
   }
 
   /**
@@ -44,6 +48,7 @@ class CustomerController extends Controller
   public function store(StoreCustomerRequest $request)
   {
     Customer::create([
+      'user_id' => $request->user_id,
       'name' => $request->name,
       'kana' => $request->kana,
       'tel' => $request->tel,

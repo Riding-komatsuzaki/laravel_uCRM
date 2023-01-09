@@ -3,12 +3,16 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DecileService {
   public static function decile($subQuery){
     // 1. 購買ID毎にまとめる
+    $authid = Auth::id();
+
     $subQuery = $subQuery->groupBy('id')
-    ->selectRaw('id, customer_id, customer_name, SUM(subtotal) as totalPerPurchase'); 
+    ->selectRaw('id, user_id, customer_id, customer_name, SUM(subtotal) as totalPerPurchase')
+    ->where('user_id', $authid); 
     
     // 2. 会員毎にまとめて購入金額順にソートする
     $subQuery = DB::table($subQuery)

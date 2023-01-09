@@ -10,6 +10,7 @@ use App\Models\Customer;
 use App\Models\Item;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class PurchaseController extends Controller
 {
@@ -22,12 +23,13 @@ class PurchaseController extends Controller
   {
     $orders = Order::groupBy('id')
       ->selectRaw('
-    id, sum(subtotal) as total, customer_name, status, created_at
+    id, user_id, sum(subtotal) as total, customer_name, status, created_at
     ')
       ->paginate(50);
 
     return Inertia::render('Purchases/Index', [
-      'orders' => $orders
+      'orders' => $orders,
+      'authId' => Auth::id()
     ]);
   }
 

@@ -3,15 +3,21 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class RFMService {
   public static function rfm($subQuery, $rfmPrms){
 
     // 1. 購買ID毎にまとめる
+
+    $authid = Auth::id();
+
       $subQuery = $subQuery->groupBy('id')
-      ->selectRaw('id, customer_id,
+      ->selectRaw('id, user_id, customer_id,
       customer_name, SUM(subtotal) as
-      totalPerPurchase, created_at');
+      totalPerPurchase, created_at')
+      ->where('user_id', $authid);
 
       // 2. 会員毎にまとめて最終購入日、回数、合計金額を取得
       $subQuery = DB::table($subQuery)
