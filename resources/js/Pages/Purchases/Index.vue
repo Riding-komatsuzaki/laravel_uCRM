@@ -36,7 +36,7 @@ onMounted(() => {
                                 <div
                                     class="flex pl-4 my-4 lg:w-2/3 w-full mx-auto"
                                 >
-                                    <div>
+                                    <!-- <div>
                                         <input
                                             type="text"
                                             name="search"
@@ -48,7 +48,7 @@ onMounted(() => {
                                         >
                                             検索
                                         </button>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div
                                     class="lg:w-2/3 w-full mx-auto overflow-auto"
