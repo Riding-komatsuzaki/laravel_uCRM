@@ -9,6 +9,22 @@ PHP 自作
 管理者ユーザと一般ユーザに分け、
 それぞれでログインできるようにしています。
 
+## インストール
+
+composer install<br>
+npm install && npm run dev<br>
+.env.example を .env にコピー<br>
+.env の DB 関連、sanctum, session などの情報を編集<br>
+php artisan key:generate<br>
+
+## 開発中の簡易サーバー
+
+サーバー側<br>
+php artisan serve <br>
+
+フロント側 (vite)<br>
+npm run dev<br>
+
 ## 使い方
 
 管理者ユーザ
